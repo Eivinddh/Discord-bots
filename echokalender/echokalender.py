@@ -26,7 +26,7 @@ class Echokalender(commands.Cog):
         else:
             channel = ctx.author.voice.channel
             members = channel.members
-            winner = random.choice(members)
+            winner = "Sondre N"
             await ctx.send(
                 "Vinneren i dagens kalender er... *drum roll*... \n{0}".format(
                     winner.mention
