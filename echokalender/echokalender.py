@@ -1,5 +1,4 @@
-from redbot.core import commands, checks
-from random import randint
+from redbot.core import commands
 import random
 
 
@@ -7,7 +6,15 @@ class Echokalender(commands.Cog):
     """Bot til echo sin eksamenskalender"""
 
     @commands.command()
-    @checks.admin_or_permissions(manage_guild=True)
+    async def rigged(self, ctx):
+        """ Rigged command"""
+        await ctx.send(
+            "En feil har oppstått. Grunnet lav tilgang på økonomiske ressurser"
+            + " trenger vi hjelp til å ordne opp i feilen. Vi tar imot "
+            + "*frivillige donasjoner* på **2188** på vipps."
+        )
+
+    @commands.command()
     async def kalender(self, ctx):
         """Random echo kalender!"""
         # Your code will go here
@@ -19,7 +26,6 @@ class Echokalender(commands.Cog):
         else:
             channel = ctx.author.voice.channel
             members = channel.members
-            #winner_int = randint(0, len(members) - 1)
             winner = random.choice(members)
             await ctx.send(
                 "Vinneren i dagens kalender er... *drum roll*... \n{0}".format(
